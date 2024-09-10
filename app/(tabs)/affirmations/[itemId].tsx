@@ -44,14 +44,14 @@ const AffirmationPractice = () => {
         <View className='flex-1'>
             <ImageBackground source={affirmation?.image} className='flex-1' resizeMode='cover' >
                 <AppGradient colors={["transparent", "rgba(0,0,0,0.8)"]}>
-                    <Pressable onPress={() => router.back()} className='absolute top-16 left-6 z-10'>
+                    <Pressable onPress={() => router.back()} className='absolute top-10 left-6 z-10'>
                         <Ionicons name="arrow-back-circle-outline" size={50} color="white" />
                     </Pressable>
                     <ScrollView className='mt-20' showsVerticalScrollIndicator={false} >
                         <View className='h-full justify-center '>
                             <View className='h-4/5 justify-center'>
                             {sentences?.map((sentence, idx) => (
-                                <Text className='text-white text-3xl mb-12 font-bold text-center'>
+                                <Text key={idx} className='text-white text-3xl mb-12 font-bold text-center'>
                                 {sentence}.
                             </Text>
 

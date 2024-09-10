@@ -4,9 +4,13 @@ import { FlatList, ImageBackground, Pressable, StatusBar, Text, View } from 'rea
 import { MEDITATION_DATA } from "@/constants/MeditationData";
 import meditationImages from '@/constants/meditation-images';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+
 
 
 function NatureMeditate() {
+    
+    const router = useRouter()
     return (
         <View className='flex-1 '>
             <AppGradient colors={["#161b2e", "#0a4d4a", "#766e67"]}>
@@ -19,7 +23,7 @@ function NatureMeditate() {
                     <FlatList data={MEDITATION_DATA}
                         className='mb-20' keyExtractor={(item) => item.id.toString()} showsVerticalScrollIndicator={false}
                         renderItem={({ item }) => (
-                            <Pressable onPress={() => console.log("Press nature mediataion page")} className='h-48 my-3 rounded-2xl overflow-hidden'>
+                            <Pressable onPress={() => router.push(`/meditate/${item.id}`)} className='h-48 my-3 rounded-2xl overflow-hidden'>
                                 <ImageBackground source={meditationImages[item.id - 1]} resizeMode='cover' className='flex-1  justify-center'>
                                 <LinearGradient colors={["transparent", "rgba(0,0,0,0.8)"]} className=''>
                                     <Text className='text-gray-100 text-3xl 
